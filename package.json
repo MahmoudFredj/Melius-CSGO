@@ -5,7 +5,7 @@
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "react-scripts start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -46,12 +46,18 @@
   },
   "dependencies": {
     "asynckeystate": "0.0.5",
+    "cross-env": "^7.0.3",
+    "electron-is-dev": "^2.0.0",
     "electron-shared-state": "^0.5.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^7.0.0",
+    "eslint": "^7.23.0",
     "jsonfile": "^6.1.0",
     "memoryjs": "^3.4.0",
     "node-fetch": "^2.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
     "sleep": "^6.3.0"
   },
   "devDependencies": {
@@ -60,6 +66,20 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "11.2.1"
+    "concurrently": "^6.0.0",
+    "electron": "11.2.1",
+    "wait-on": "^5.3.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
