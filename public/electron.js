@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const { cheat } = require('../src/cheat/index');
+const isDev = require('electron-is-dev');
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -15,7 +16,12 @@ const createWindow = () => {
     },
   });
   mainWindow.setMenu(null)
-  mainWindow.loadFile(path.join(__dirname, './public/index.html'));
+  // mainWindow.loadFile(path.join(__dirname, './public/index.html'));
+  mainWindow.loadURL(
+    isDev
+      ? "http://localhost:3000"
+      : `file://${path.join(__dirname, "../build/index.html")}`
+  );
 
   cheat.getProcess();
   mainWindow.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
